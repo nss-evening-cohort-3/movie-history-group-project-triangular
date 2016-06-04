@@ -2,52 +2,88 @@
 <html>
 <head>
     <title>Movie History App</title>
-    <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">	
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    	<link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    	<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 	<body  ng-app="MovieHistoryApp">
-	  <div ng-controller="MovieHistoryCtrl" ng-include="'./partial-html/nav-bar.html'"></div>
-		<div class="col-xs-10 col-xs-offset-1 main-container">
-        <div class="row">
-			    <div class="col-xs-6 col-xs-offset-3">
-			        <div class="input-group search-bar-spacing">
-			            <span class="input-group-btn">
-			                <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-			            </span>
-			            <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
-			        </div>
-			    </div>	
-                            <!-- <div class="col-xs-12" ng-view></div> -->
-            <div>
-            	<button class="btn btn-default">Watched Movies</button>
-            </div>
+		<nav class="navbar navbar-default" ng-controller="NavCtrl">
+ 			<div class="container-fluid">
+ 		    <!-- Brand and toggle get grouped for better mobile display -->
+ 		    <div class="navbar-header">
+ 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+ 		        <span class="sr-only">Toggle navigation</span>
+ 		        <span class="icon-bar"></span>
+ 		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+ 		      </button>
+ 		      <a class="navbar-brand" href="#">Movies!</a>
+ 		    </div>
+ 
+ 		    <!-- Collect the nav links, forms, and other content for toggling -->
+ 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 		      <ul class="nav navbar-nav navbar-right" ng-repeat="linkName in navItems">
+ 		        <li><a href="#">{{linkName.name}}</a></li>
+ 		      </ul>
+ 		    </div><!-- /.navbar-collapse -->
+ 		  </div><!-- /.container-fluid -->
+ 		</nav>
 
-        <div class="row moveIt">
-			    <div class="col-xs-6 col-xs-offset-3">
-			        <div class="input-group search-bar-spacing">
-			            <span class="input-group-btn">
-			                <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-			            </span>
-			            <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
-			        </div>
-			    </div>	    
-						<div>
-            	<button class="btn btn-default">Movies To Watch</button>
-            </div>	
-      		</div>
-		</div>
+<!-- 	  <div ng-controller="MovieHistoryCtrl" ng-include="'./partial-html/nav-bar.html'"></div> -->
+		<div class="container-fluid main-container">
+			<div class="row searchBoxes">
+		  	<div class="col-xs-5 col-xs-offset-1">
+		    	<input type="text" class="form-control" placeholder="Search for movies" ng-model="searchText">
+		    </div>
+	      <div class="col-xs-5">
+	       <input type="text" class="form-control" placeholder="Search my movies" ng-model="searchText">
+
+				</div>
+			</div>
+
+			<div class="row searchButtons">
+				<div class="col-xs-5 col-xs-offset-1">
+			  	<span class="input-group-btn allMoviesSearch">
+			    	<button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i>Submit search</button>
+			  	</span>
+			  </div>
+
+				<div class="col-xs-5">
+			    <span class="input-group-btn myMoviesSearch">
+			       <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i>Submit search</button>
+			    </span>
+				</div>
+			 </div>
+
+	    <div class="row watchButtons">
+				<div class="col-xs-4 col-xs-offset-2">
+        	<button class="btn btn-default">Watched Movies</button>
+        	</div>
+        	<div class="col-xs-4 col-xs-offset-2">
+        		<button class="btn btn-default">Movies To Watch</button>
+        	</div>
+        </div>
+      </div>
+
+      <div class="container-fluid movie-container">
+      	<div class="panel panel-default">
+      		<div class="row movie-display"></div>
+      	</div>
+     	</div>
 
 		<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
-		<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-		<script type="text/javascript" src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-		<script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+	<!-- 	// <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+		// <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script> -->
+<!-- 		// <script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script> -->
 		<script type="text/javascript" src="app/app.js"></script>
-		<script type="text/javascript" src="app/factories/MovieFactory.js"></script>
-		<script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
-		<script type="text/javascript" src="app/controllers/ToWatchCtrl.js"></script>
-		<script type="text/javascript" src="app/controllers/WatchedCtrl.js"></script>
+<!-- 		// <script type="text/javascript" src="app/factories/MovieFactory.js"></script>
+
+		// <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+		// <script type="text/javascript" src="app/controllers/ToWatchCtrl.js"></script>
+		// <script type="text/javascript" src="app/controllers/WatchedCtrl.js"></script> -->
+
+<!-- <script type="text/javascript" src="app/controllers/NavCtrl.js"></script> -->
 	</body>
 </html>
