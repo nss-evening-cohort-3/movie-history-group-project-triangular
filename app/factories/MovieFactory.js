@@ -26,6 +26,6 @@ app.factory("MovieDataFactory", function($http, $q) {
 
 
   return {
-  	getMoviesToWatch
+  	getMoviesToWatch:getMoviesToWatch
   }
 });

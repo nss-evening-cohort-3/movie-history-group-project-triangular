@@ -6,16 +6,21 @@ app.controller('ToWatchCtrl',
 	"MovieDataFactory",
 	function($scope, $location, MovieDataFactory) {
 	  console.log("to watch controller loaded");
-	  $scope.moviesToWatch = [];
 	  $scope.searchOMDatabase = "";
+	  $scope.addMovie = {};
+	  $scope.movies = [{
+	  	Title: "",
+	  	Year: ""
+	  }];	
 
-		//this happens when we click on the button
+	  $scope.moviesToWatch = [];
+	 		//this happens when we click on the button
 		$scope.searchMovies = function(){
 			console.log("searchMovies");
 	    MovieDataFactory.getMoviesToWatch($scope.searchOMDatabase).then(function(ToWatchCollection) {
 	        console.log("ToWatchCollection", ToWatchCollection);
-	        $scope.moviesToWatch = ToWatchCollection.Search;
-	        //loop thru collection
+	        $scope.movies = ToWatchCollection.Search;
+	        console.log("$scope.movies", $scope.movies);
 	    });
-	  }  
+	  }
  }]);
