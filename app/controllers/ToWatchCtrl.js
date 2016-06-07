@@ -21,15 +21,6 @@ app.controller('ToWatchCtrl',
 	        console.log("ToWatchCollection", ToWatchCollection);
 	        $scope.movies = ToWatchCollection.Search;
 	        console.log("$scope.movies", $scope.movies);
-	        
-
-
-
-	        
-//wrapped $scope.movies in []
-//added $scope.addMovie = {};
-//moved $scope.moviesToWatch = []; from line 10 to line 16
-
 	    });
-	  }  
+	  }
  }]);
