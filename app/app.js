@@ -1,5 +1,5 @@
 var app = angular.module("MovieHistoryApp", ["ngRoute"]);
-
+	// .constant("firebaseURL", "https")
 app.controller("NavCtrl", function($scope) {
 	$scope.navItems = [{name: "Logout"}, {name:"Movies to watch"}, {name:"Watched movies"}]
 });
@@ -17,17 +17,17 @@ app.config(function($routeProvider){
 			// resolve: {isAuth}
 		}).
 		when('/login', {
-			templateUrl: 'partial-html/login.html',
+			templateUrl: 'partials/login.html',
 			controller: 'app/controllers/LoginCtrl.js'
 			// resolve: {isAuth}
 		}).
-		when('/moviesWatched/list', {
-			templateUrl: 'partial-html/list.html',
+		when('/myList', {
+			templateUrl: 'partials/myList.html',
 			controller: 'app/controllers/WatchedCtrl.js'
 			// resolve: {isAuth}
 		}).
-		when('/moviesToWatch/list', {
-			templateUrl: 'partial-html/toWatchList.html',
+		when('/list', {
+			templateUrl: 'partials/List.html',
 			controller: 'app/controllers/ToWatchCtrl.js'
 			// resolve: {isAuth}
 		}).
@@ -42,7 +42,7 @@ app.config(function($routeProvider){
 
 
 
-
+//uncommented line 22
 
 
 
