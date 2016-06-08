@@ -1,0 +1,16 @@
+$OurColor: green;
+$OurStyle: italic;
+$OurWeight:  700;
+$OurWall: grey;
+$LightWall: pink;
+
+
+.headline {
+	color: $OurColor;
+	font-style: $OurStyle;
+	font-weight: $OurWeight;
+}
+
+.main-container {
+	background-color: $OurWall;
+}
