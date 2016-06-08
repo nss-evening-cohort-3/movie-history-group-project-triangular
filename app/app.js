@@ -28,10 +28,10 @@ app.config(function($routeProvider){
 			templateUrl: './partials/list.html',
 			controller: 'ToWatchCtrl'
 		}).
-		// when('/search', {
-		// 	templateUrl: './partials/search.html',
-		// 	controller: 'SearchCtrl'
-		// }).
+		when('/search', {
+			templateUrl: './partials/search.html',
+			controller: 'SearchCtrl'
+		}).
 		otherwise('/');
 
 });
