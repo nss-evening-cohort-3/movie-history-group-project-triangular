@@ -17,7 +17,7 @@ app.factory("MovieDataFactory", function($http, $q) {
 				});
 			};
 		
-		var addMovieToList = function(movieID){
+		var addMovieToWatchlist = function(movieID){
 			return $q(function(resolve, reject){
 				$http.post(
 					 firebaseURL + "towatch.json",
@@ -43,6 +43,6 @@ app.factory("MovieDataFactory", function($http, $q) {
 
 
   return {
-  	getMoviesToWatch:getMoviesToWatch
+  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchlist:addMovieToWatchlist
   }
 });
