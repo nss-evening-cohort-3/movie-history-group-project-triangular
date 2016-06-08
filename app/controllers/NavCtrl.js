@@ -1,3 +1,3 @@
 app.controller("NavCtrl", function($scope) {
-	$scope.navItems = [{name: "Logout"}, {name:"Movies to watch"}, {name:"Watched movies"}]
+	$scope.navItems = [{name: "Logout"}, {name:"Search movies"}, {name:"Movies to watch"}, {name:"Watched movies"}]
 });
