@@ -1,4 +1,4 @@
-var app = angular.module("MovieHistoryApp", ["ngRoute"]);
+var app = angular.module("MovieHistoryApp", ["ngRoute"])
 .constant("firebaseURL", "https://mh-triangular.firebaseio.com/")
 
 app.directive('errSrc', function() {
