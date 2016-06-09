@@ -26,7 +26,7 @@ app.config(function($routeProvider){
 		// }).
 		when('/list', {
 			templateUrl: './partials/list.html',
-			controller: 'ToWatchCtrl'
+			controller: 'UserWatchCtrl'
 		}).
 		when('/search', {
 			templateUrl: './partials/search.html',

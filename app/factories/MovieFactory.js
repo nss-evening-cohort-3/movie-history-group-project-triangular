@@ -16,8 +16,7 @@ app.factory("MovieDataFactory", function($http, $q) {
 					 }
 				);	 
 		});
-	};
-		
+	};	
 
 	
 
