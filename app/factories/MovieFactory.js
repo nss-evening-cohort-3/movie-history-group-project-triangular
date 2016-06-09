@@ -1,9 +1,5 @@
 "use strict";
-
 app.factory("MovieDataFactory", function($http, $q) {
-
-
-
 
 //api to movie database
 	var getMoviesToWatch = function(searchTerm){
@@ -13,6 +9,7 @@ app.factory("MovieDataFactory", function($http, $q) {
 					resolve(movieData);
 				}, function(error){
 						 reject(error);
+
 					 });	 
 				});
 			};
@@ -35,12 +32,6 @@ app.factory("MovieDataFactory", function($http, $q) {
 				);
 			});
 		};
-
-	
-
-
-
-
 
   return {
   	getMoviesToWatch:getMoviesToWatch, addMovieToWatchlist:addMovieToWatchlist

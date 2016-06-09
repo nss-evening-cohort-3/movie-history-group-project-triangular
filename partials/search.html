@@ -21,7 +21,7 @@
             	<img ng-src={{movie.Poster}} err-src="img/ImageNotFound.png">
             	<h4>{{movie.Title}}</h4>
             	<h5>{{movie.Year}}</h5>
-            	<button type="button" class="btn btn-info">Add to Watchlist</button>
+            	<button ng-controller="UserWatchCtrl" type="button" class="btn btn-info" ng-click="moviesToWatch(movie)">Add to Watchlist</button>
           	</div>
       </div>
    	</div>
