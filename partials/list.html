@@ -1,50 +1,23 @@
-<h1 class="headline">SEARCH FOR MOVIES!</h1>
-
-<div class="container-fluid main-container">
-    <div class="row searchBoxes">
-        <div class="col-xs-5 col-xs-offset-1">
-            <input type="text" class="form-control" placeholder="Search for movies" ng-model="searchOMDatabase">
-        </div>
-
-        <div class="col-xs-5">
-           <input type="text" class="form-control" placeholder="Search my movies" ng-model="searchUserMovies">
-        </div>
-    </div>
-
-    <div class="row searchButtons">
-        <div class="col-xs-5 col-xs-offset-1">
-            <span class="input-group-btn allMoviesSearch">
-                <button class="btn btn-default" ng-click="searchMovies(); showMovies =! showMovies"><i class="fa fa-search" aria-hidden="true"></i>Submit search</button>
-            </span>
-        </div>
-
-        <div class="col-xs-5">
-            <span class="input-group-btn myMoviesSearch">
-                <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i>Submit search</button>
-            </span>
-        </div>
-    </div>
-
-    <div class="row watchButtons">
-        <div class="col-xs-4 col-xs-offset-2">
-            <button class="btn btn-default">Watched Movies</button>
-        </div>
-        <div class="col-xs-4 col-xs-offset-2">
-            <button class="btn btn-default">Movies To Watch</button>
-        </div>
-    </div>
-
-
-<h3>Watched Movies</h3>
-    <div class="movieDisplay" ng-show="showMovies">
-      <div ng-repeat="movie in movies">
-        <div class="clearfix" ng-if="$index % 3 == 0"></div>
-          <div class="col-md-4">
-            <img ng-src={{movie.Poster}} err-src="img/ImageNotFound.png">
-            <h4>{{movie.Title}}</h4>
-            <h5>{{movie.Year}}</h5>
-            <button>Add to Watchlist</button>
-          </div>
+<div class="container-fluid main-container" data-ng-init="getWatchList()">
+<h2 class="moviesearch">Movies To Watch</h2>
+            <div class="row searchBoxes">
+            <div class="col-xs-5 col-xs-offset-1">
+                <input type="text" class="form-control" placeholder="Search My WatchList" ng-model="searchText">
+            </div>
+          
+   <div class="row searchButtons">
+        
+            <div class="movieDisplay">
+        <div ng-repeat="movie in movies | filter:searchText">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col-md-4">
+                <img ng-src={{movie.poster}} err-src="img/ImageNotFound.png">
+                <h4>{{movie.title}}</h4>
+                <h5>{{movie.year}}</h5>
+                <button type="button" class="btn btn-success" ng-click="moviesWatched(movie)">Watched</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteMovie(movie)">Delete</button>
+            </div>
       </div>
-   </div>
+    </div>
+    </div>
 </div>
