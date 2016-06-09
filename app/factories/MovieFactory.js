@@ -23,13 +23,22 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 				.success(
 					function(objectFromFirebase){
 						resolve(objectFromFirebase);
-						console.log("movie", objectFromFirebase);
-					}
-				);
+					});
 			});
 		};
 
+		var getMoviesOnWatchList = function(){
+			return $q(function(resolve,reject){
+				$http.get(
+					firebaseURL
+					)
+				.success(
+					function(objectFromFirebase){
+						resolve(objectFromFirebase);
+					});
+			});
+		};
   return {
-  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchList:addMovieToWatchlist
+  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchList:addMovieToWatchlist, getMoviesOnWatchList:getMoviesOnWatchList
   }
 });
