@@ -7,14 +7,9 @@ app.controller('UserWatchCtrl',
 	function($scope, $location, MovieDataFactory) {
 	  console.log("to watch controller loaded");
 	  $scope.searchOMDatabase = "";
-	  $scope.addMovie = {};
-	  // $scope.movies = [{
-	  // 	Title: "",
-	  // 	Year: ""
-	  // }];	
+	  $scope.addMovie = {};	
 
 	 		//this happens when we click on the addToWatchList button 
-	  // $scope.moviesToWatch = "";
 	 		//add selected movie into existing firebase object
 	   $scope.moviesToWatch = function(movie){
 	   	let selectedMovie = {
@@ -23,8 +18,7 @@ app.controller('UserWatchCtrl',
 	   		year:movie.Year,
 	   		isWatched:false
 	   	}
-	   	console.log("selectedMovie",selectedMovie);
-	   	
+	   	MovieDataFactory.addMovieToWatchList(selectedMovie);
 
 	   }
  }]);

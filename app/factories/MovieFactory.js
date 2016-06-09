@@ -1,5 +1,5 @@
 "use strict";
-app.factory("MovieDataFactory", function($http, $q) {
+app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 
 //api to movie database
 	var getMoviesToWatch = function(searchTerm){
@@ -14,26 +14,22 @@ app.factory("MovieDataFactory", function($http, $q) {
 				});
 			};
 		
-		var addMovieToWatchlist = function(movieID){
+		var addMovieToWatchlist = function(movie){
 			return $q(function(resolve, reject){
 				$http.post(
-					 firebaseURL + "towatch.json",
-					 JSON.stringify({
-					 	Title: movie.Title,
-					 	Year: movie.Year,
-					 	Poster: movie.Poster,
-					 	isWatched: movie.isWatched
-					 })
+					 firebaseURL,
+					 JSON.stringify(movie)
 					)
 				.success(
 					function(objectFromFirebase){
 						resolve(objectFromFirebase);
+						console.log("movie", objectFromFirebase);
 					}
 				);
 			});
 		};
 
   return {
-  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchlist:addMovieToWatchlist
+  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchList:addMovieToWatchlist
   }
 });
