@@ -3,7 +3,7 @@
 app.controller('SearchCtrl', ["$scope", "$location", "MovieDataFactory",
 	 function($scope, $location, MovieDataFactory){
 	 	console.log("SearchCtrl loaded");
-	 	$scope.searchDOMDatabase = "";
+	 	$scope.searchOMDatabase = "";
 	 	$scope.movies = [{
 	 		Title: "",
 	 		Year: ""

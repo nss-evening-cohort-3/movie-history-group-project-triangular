@@ -2,7 +2,7 @@
  
 app.controller('UserWatchCtrl', 
 	["$scope", 
-	"$location", 
+	"$location",
 	"MovieDataFactory",
 	function($scope, $location, MovieDataFactory) {
 	  console.log("to watch controller loaded");
@@ -27,9 +27,19 @@ app.controller('UserWatchCtrl',
 	   	.then(function(data){
 	   		$scope.movies = [];
 	   		for (var key in data){
+	   			data[key].id = key
 	   			$scope.movies.push(data[key]);
-	   			console.log("scope", $scope.movies);
 	   		}
 	   	})
 	   }
+
+	   $scope.deleteMovie = function(data){
+	   	MovieDataFactory.deleteMovieFromWatchList(data.id)
+	   		.then(function(){
+	   			$scope.getWatchList()
+	   	 })
+	   	}
+
+
+
  }]);

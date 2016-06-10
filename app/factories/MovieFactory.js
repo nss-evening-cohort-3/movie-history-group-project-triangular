@@ -17,7 +17,7 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 		var addMovieToWatchlist = function(movie){
 			return $q(function(resolve, reject){
 				$http.post(
-					 firebaseURL,
+					 firebaseURL + ".json",
 					 JSON.stringify(movie)
 					)
 				.success(
@@ -30,7 +30,7 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 		var getMoviesOnWatchList = function(){
 			return $q(function(resolve,reject){
 				$http.get(
-					firebaseURL
+					firebaseURL + ".json"
 					)
 				.success(
 					function(objectFromFirebase){
@@ -38,7 +38,22 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 					});
 			});
 		};
+
+		var deleteMovieFromWatchList = function(movieId){
+			return $q(function(resolve, reject){
+				$http.delete(
+					firebaseURL + "/" + movieId + ".json")
+				.success(
+					function(objectFromFirebase){
+						resolve(objectFromFirebase);
+					})
+			})
+		}
+
+
+
   return {
-  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchList:addMovieToWatchlist, getMoviesOnWatchList:getMoviesOnWatchList
+  	getMoviesToWatch:getMoviesToWatch, addMovieToWatchList:addMovieToWatchlist, getMoviesOnWatchList:getMoviesOnWatchList,
+  		deleteMovieFromWatchList:deleteMovieFromWatchList
   }
 });

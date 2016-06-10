@@ -1,16 +1,21 @@
-$OurColor: green;
-$OurStyle: italic;
-$OurWeight:  700;
-$OurWall: grey;
-$LightWall: pink;
+$HeadlineColor: DarkCyan;
+$ContainerWall: Silver;
+$BodyWall: LightSeaGreen;
 
 
-.headline {
-	color: $OurColor;
-	font-style: $OurStyle;
-	font-weight: $OurWeight;
+.moviesearch {
+	font-family: "Bangers", cursive;
+	color: $HeadlineColor;
+	text-align: center;
+	font-size: 4em;
 }
 
+
 .main-container {
-	background-color: $OurWall;
+	background-color: $ContainerWall;
+}
+
+.watchlistSearch {
+	padding-bottom: 20px;
+	
 }
