@@ -9,7 +9,6 @@ app.controller('UserWatchCtrl',
 	  $scope.searchOMDatabase = "";
 	  $scope.addMovie = {};	
 
-
 	 		//this happens when we click on the addToWatchList button 
 	 		//add selected movie into existing firebase object
 	   $scope.moviesToWatch = function(movie){
@@ -34,12 +33,11 @@ app.controller('UserWatchCtrl',
 	   }
 
 	   $scope.deleteMovie = function(data){
+	   	console.log("hi");
 	   	MovieDataFactory.deleteMovieFromWatchList(data.id)
 	   		.then(function(){
 	   			$scope.getWatchList();
 	   	 })
 	   	}
-
-
 
  }]);
