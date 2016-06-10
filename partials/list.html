@@ -1,12 +1,10 @@
 <div class="container-fluid main-container" data-ng-init="getWatchList()">
 <h2 class="moviesearch">Movies To Watch</h2>
-            <div class="row searchBoxes">
-            <div class="col-xs-5 col-xs-offset-1">
+            <div class="watchlistSearch col-xs-6 col-xs-offset-3">
                 <input type="text" class="form-control" placeholder="Search My WatchList" ng-model="searchText">
             </div>
-          
-   <div class="row searchButtons">
-        
+
+
             <div class="movieDisplay">
         <div ng-repeat="movie in movies | filter:searchText">
             <div class="clearfix" ng-if="$index % 3 == 0"></div>
@@ -18,6 +16,5 @@
                 <button type="button" class="btn btn-danger" ng-click="deleteMovie(movie)">Delete</button>
             </div>
       </div>
-    </div>
     </div>
 </div>

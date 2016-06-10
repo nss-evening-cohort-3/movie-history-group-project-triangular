@@ -1,7 +1,11 @@
-.headline {
-  color: green;
-  font-style: italic;
-  font-weight: 700; }
+.moviesearch {
+  font-family: "Bangers", cursive;
+  color: DarkCyan;
+  text-align: center;
+  font-size: 4em; }
 
 .main-container {
-  background-color: grey; }
+  background-color: Silver; }
+
+.watchlistSearch {
+  padding-bottom: 20px; }

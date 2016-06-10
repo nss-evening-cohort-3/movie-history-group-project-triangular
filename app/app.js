@@ -1,5 +1,5 @@
 var app = angular.module("MovieHistoryApp", ["ngRoute"])
-.constant("firebaseURL", "https://mh-triangular.firebaseio.com/movies.json")
+.constant("firebaseURL", "https://mh-triangular.firebaseio.com/movies")
 
 app.directive('errSrc', function() {
   return {

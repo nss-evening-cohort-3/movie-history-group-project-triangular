@@ -1,18 +1,10 @@
 {
-	"towatch": {
+	"movies": {
 			"movie": {
 					"Title": "",
 					"Year": "",
 					"Poster": "",
 					"isWatched": false
 			}
-	},
-	"watched": {
-		"movie": {
-				"Title": "",
-				"Year": "",
-				"Poster": "",
-				"isWatched": true
 		}
-	}
 }

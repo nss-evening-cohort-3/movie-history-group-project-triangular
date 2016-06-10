@@ -1,18 +1,16 @@
 <div class="container-fluid main-container">
 <h2 class="moviesearch">Search for movies</h2>
-			<div class="row searchBoxes">
-		  	<div class="col-xs-5 col-xs-offset-1">
+			<div class="row">
+		  	<div class="movieSearch col-xs-6 col-xs-offset-3">
 		    	<input type="text" class="form-control" placeholder="Search for movies" ng-model="searchOMDatabase">
 		    </div>
-	      <div class="col-xs-5">
 
-			</div>
-   <div class="row searchButtons">
         <div class="col-xs-5 col-xs-offset-1">
             <span class="input-group-btn allMoviesSearch">
                 <button class="btn btn-default" ng-click="searchMovies(); showMovies =! showMovies"><i class="fa fa-search" aria-hidden="true"></i>Submit search</button>
             </span>
         </div>
+
 
 			<div class="movieDisplay" ng-show="showMovies">
       	<div ng-repeat="movie in movies">
