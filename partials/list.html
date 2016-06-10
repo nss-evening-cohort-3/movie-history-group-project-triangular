@@ -1,20 +1,20 @@
 <div class="container-fluid main-container" data-ng-init="getWatchList()">
-<h2 class="moviesearch">Movies To Watch</h2>
-            <div class="watchlistSearch col-xs-6 col-xs-offset-3">
-                <input type="text" class="form-control" placeholder="Search My WatchList" ng-model="searchText">
-            </div>
+    <h2 class="moviesearch">Movies To Watch</h2>
+      <div class="watchlistSearch col-xs-6 col-xs-offset-3">
+        <input type="text" class="form-control" placeholder="Search My WatchList" ng-model="searchText">
+      </div>
 
 
-            <div class="movieDisplay">
+      <div class="movieDisplay">
         <div ng-repeat="movie in movies | filter:searchText">
-            <div class="clearfix" ng-if="$index % 3 == 0"></div>
-            <div class="col-md-4">
-                <img ng-src={{movie.poster}} err-src="img/ImageNotFound.png">
+          <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="movieCard col-md-4">
+              <img ng-src={{movie.poster}} err-src="img/ImageNotFound.png">
                 <h4>{{movie.title}}</h4>
                 <h5>{{movie.year}}</h5>
                 <button type="button" class="btn btn-success" ng-click="moviesWatched(movie)">Watched</button>
                 <button type="button" class="btn btn-danger" ng-click="deleteMovie(movie)">Delete</button>
             </div>
+        </div>
       </div>
     </div>
-</div>

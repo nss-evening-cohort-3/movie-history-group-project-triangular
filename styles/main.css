@@ -9,3 +9,12 @@
 
 .watchlistSearch {
   padding-bottom: 20px; }
+
+.movieSearch {
+  padding-bottom: 10px; }
+
+.searchButton {
+  padding-top: 10px; }
+
+.movieCard {
+  padding: 10px; }
