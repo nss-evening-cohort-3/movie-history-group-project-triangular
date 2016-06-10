@@ -33,6 +33,7 @@ app.controller('UserWatchCtrl',
 	   }
 
 	   $scope.deleteMovie = function(data){
+	   	console.log("hi");
 	   	MovieDataFactory.deleteMovieFromWatchList(data.id)
 	   		.then(function(){
 	   			$scope.getWatchList();

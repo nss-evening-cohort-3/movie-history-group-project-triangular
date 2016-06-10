@@ -40,9 +40,11 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 		};
 
 		var deleteMovieFromWatchList = function(movieId){
+			console.log("movieId",movieId );
 			return $q(function(resolve, reject){
+
 				$http.delete(
-					firebaseURL + "/" + movieId + ".json")
+					firebaseURL + "movies/" + movieId + ".json")
 				.success(
 					function(objectFromFirebase){
 						resolve(objectFromFirebase);
