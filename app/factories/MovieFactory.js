@@ -17,7 +17,7 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 		var addMovieToWatchlist = function(movie){
 			return $q(function(resolve, reject){
 				$http.post(
-					 firebaseURL + ".json",
+					 firebaseURL +"movies"+ ".json",
 					 JSON.stringify(movie)
 					)
 				.success(
@@ -30,7 +30,7 @@ app.factory("MovieDataFactory", function($http, $q, firebaseURL) {
 		var getMoviesOnWatchList = function(){
 			return $q(function(resolve,reject){
 				$http.get(
-					firebaseURL + ".json"
+					firebaseURL +"movies"+ ".json"
 					)
 				.success(
 					function(objectFromFirebase){
